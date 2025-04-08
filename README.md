@@ -1,4 +1,4 @@
-# 💊 Medibox – Smart Medicine Reminder (ESP32 + OLED + IoT)
+# 💊 Medibox – Smart Medicine Reminder (ESP32 + OLED)
 
 **Medibox** is a compact medicine reminder system powered by an ESP32. It features alarm scheduling, snooze functionality, environmental monitoring, and an intuitive menu-driven interface via an OLED display. Built for reliability, ease of use, and future scalability.
 
