@@ -101,7 +101,29 @@
       "left": -364.8,
       "attrs": { "value": "1000" }
     },
-    { "type": "wokwi-dht22", "id": "dht1", "top": -364.5, "left": -658.2, "attrs": {} }
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -364.5,
+      "left": -658.2,
+      "attrs": { "temperature": "53.4", "humidity": "40" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -528.3,
+      "left": -600.7,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -567.4,
+      "left": -391.8,
+      "rotate": 270,
+      "attrs": {}
+    }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -138,6 +160,14 @@
     [ "bb1:9t.a", "esp:34", "green", [ "v-86.4", "h-96", "v-182.4" ] ],
     [ "bb2:7t.a", "esp:33", "green", [ "v0" ] ],
     [ "bb2:17t.a", "esp:32", "green", [ "v0" ] ],
+    [ "dht1:VCC", "bb2:tp.2", "red", [ "v76.8", "h96" ] ],
+    [ "bb2:tn.5", "dht1:GND", "black", [ "v-172.9", "h-104" ] ],
+    [ "esp:12", "dht1:SDA", "green", [ "h-470.25", "h-9.6", "v-48" ] ],
+    [ "bb2:tn.10", "ldr1:GND", "black", [ "v-336.1", "h-56" ] ],
+    [ "bb2:tp.11", "ldr1:VCC", "red", [ "v-345.3", "h-65.6" ] ],
+    [ "bb2:tn.19", "servo1:GND", "black", [ "v-259.3", "h30.4", "v-19.2" ] ],
+    [ "bb2:tp.20", "servo1:V+", "red", [ "v-239.7", "h30.4" ] ],
+    [ "ldr1:AO", "esp:VN", "green", [ "v0" ] ],
     [ "bz1:1", "bb1:35t.d", "", [ "$bb" ] ],
     [ "bz1:2", "bb1:36t.d", "", [ "$bb" ] ],
     [ "r1:1", "bb1:36t.e", "", [ "$bb" ] ],
@@ -170,9 +200,7 @@
     [ "r5:2", "bb2:17b.j", "", [ "$bb" ] ],
     [ "r6:1", "bb2:21b.j", "", [ "$bb" ] ],
     [ "r6:2", "bb2:27b.j", "", [ "$bb" ] ],
-    [ "dht1:VCC", "bb2:tp.2", "red", [ "v76.8", "h96" ] ],
-    [ "bb2:tn.5", "dht1:GND", "black", [ "v-172.9", "h-104" ] ],
-    [ "esp:12", "dht1:SDA", "green", [ "v-9.6", "h-479.85" ] ]
+    [ "servo1:PWM", "esp:13", "green", [ "v0" ] ]
   ],
   "dependencies": {}
 }
